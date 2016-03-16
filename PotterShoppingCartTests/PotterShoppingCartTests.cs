@@ -18,7 +18,7 @@ namespace PotterShoppingCart.Tests
             var target = new PotterShoppingCart();
             var orderList = new List<Order>
             {
-                new Order { SerialNum = 1, Number = 1 }
+                new Order { SerialNum = 1, Quantity = 1 }
             };
 
             target.AddOrders(orderList);
@@ -38,8 +38,8 @@ namespace PotterShoppingCart.Tests
             var target = new PotterShoppingCart();
             var orderList = new List<Order>
             {
-                new Order { SerialNum = 1, Number = 1 },
-                new Order { SerialNum = 2, Number = 1 }
+                new Order { SerialNum = 1, Quantity = 1 },
+                new Order { SerialNum = 2, Quantity = 1 }
             };
 
             target.AddOrders(orderList);
