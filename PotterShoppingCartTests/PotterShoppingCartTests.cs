@@ -53,7 +53,7 @@ namespace PotterShoppingCart.Tests
         }
 
         [TestMethod]
-        public void TestCheckout__第1_2_3_集_各_1本_總價格應為_270()
+        public void TestCheckout_第1_2_3_集_各_1本_總價格應為_270()
         {
             // arrange
             var target = new PotterShoppingCart();
