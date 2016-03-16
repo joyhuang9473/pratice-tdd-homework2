@@ -7,14 +7,18 @@ namespace PotterShoppingCart
 {
     public class PotterShoppingCart
     {
+        private List<Order> _orderList;
+
         public void AddOrders(List<Order> orderList)
         {
-            throw new NotImplementedException();
+            this._orderList = orderList;
         }
 
-        public object Checkout()
+        public int Checkout()
         {
-            throw new NotImplementedException();
+            int potterBookPrice = 100;
+            int result = potterBookPrice * this._orderList.Count;
+            return result;
         }
     }
 }
