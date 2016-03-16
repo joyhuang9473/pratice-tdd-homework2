@@ -7,6 +7,14 @@ namespace PotterShoppingCart
 {
     public class PotterShoppingCart
     {
+        public void AddOrders(List<Order> orderList)
+        {
+            throw new NotImplementedException();
+        }
 
+        public object Checkout()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
