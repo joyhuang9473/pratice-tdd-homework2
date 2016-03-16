@@ -30,5 +30,26 @@ namespace PotterShoppingCart.Tests
             var expected = 100;
             Assert.AreEqual(expected, actual);
         }
+
+        [TestMethod]
+        public void TestCheckout_第1集_1本_第2集_1本_總價格應為_190()
+        {
+            // arrange
+            var target = new PotterShoppingCart();
+            var orderList = new List<Order>
+            {
+                new Order { SerialNum = 1, Number = 1 },
+                new Order { SerialNum = 2, Number = 1 }
+            };
+
+            target.AddOrders(orderList);
+
+            // act
+            var actual = target.Checkout();
+
+            // assert
+            var expected = 190;
+            Assert.AreEqual(expected, actual);
+        }
     }
 }
