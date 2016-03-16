@@ -8,7 +8,15 @@ namespace PotterShoppingCart
     public class PotterShoppingCart
     {
         private const int POTTER_BOOK_PRICE = 100;
-        private const double FIRST_SPECIAL_PRICE_RATIO = 0.95;
+
+        private enum DiscountDegree
+        {
+            TWO_KIND_BOOKS = 2,
+            THREE_KIND_BOOKS,
+            FOUR_KIND_BOOKS,
+            FIVE_KIND_BOOKS
+        }
+
         private List<Order> _orderList;
 
         /**
@@ -58,9 +66,32 @@ namespace PotterShoppingCart
 
         private double CalculateSpecialPrice()
         {
-            int discountDegree = GetDiscountDegree();
+            double specialPriceRatio = 0;
+            int quantity = 0;
 
-            return POTTER_BOOK_PRICE * discountDegree * FIRST_SPECIAL_PRICE_RATIO;
+            switch (GetDiscountDegree())
+            {
+                case DiscountDegree.FIVE_KIND_BOOKS:
+                    specialPriceRatio = 0.75;
+                    quantity = 5;
+                    break;
+                case DiscountDegree.FOUR_KIND_BOOKS:
+                    specialPriceRatio = 0.8;
+                    quantity = 4;
+                    break;
+                case DiscountDegree.THREE_KIND_BOOKS:
+                    specialPriceRatio = 0.9;
+                    quantity = 3;
+                    break;
+                case DiscountDegree.TWO_KIND_BOOKS:
+                    specialPriceRatio = 0.95;
+                    quantity = 2;
+                    break;
+                default:
+                    break;
+            }
+
+            return POTTER_BOOK_PRICE * quantity * specialPriceRatio;
         }
 
         private double CalculateOriginalPrice()
@@ -78,9 +109,9 @@ namespace PotterShoppingCart
             return price;
         }
 
-        private int GetDiscountDegree()
+        private DiscountDegree GetDiscountDegree()
         {
-            return this._quantityOfPotterBook.Count(n => n >= 1);
+            return (DiscountDegree)this._quantityOfPotterBook.Count(n => n >= 1);
         }
 
         private bool HasSpecialPrice()
